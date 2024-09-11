@@ -146,6 +146,10 @@ def word_lengths(words: list) -> list:
     Returns:
     - list: A list containing the lengths of the words
     """
+    lengths = [] 
+    for word in words: 
+        lengths.append(len(word))
+    return lengths
     # TODO: Implement this function
     pass
 
