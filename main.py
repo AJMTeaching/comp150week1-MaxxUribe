@@ -73,7 +73,10 @@ def test_count_vowels():
     test(count_vowels("a e i o u") == 5)
     test(count_vowels("rhythm") == 0)
 
-
+def extend_list(list_to_extend_into, list_to_append_items_from): 
+    for item in list_to_append_items_from:
+        list_to_extend_into.append(item) 
+    return list_to_extend_into
 # Function 2: merge_lists
 def merge_lists(list1: list, list2: list) -> list:
     """
@@ -86,7 +89,32 @@ def merge_lists(list1: list, list2: list) -> list:
     Returns:
     - list: A new sorted list containing all elements from list1 and list2
     """
-    
+    if not list1: 
+        return list2 
+    if not list2: 
+        return list1
+    merged_list = [] 
+    i1, i2 = 0, 0 
+    while len(merged_list) < len(list1) + len(list2):
+        if list1[i1] < list2[i2]: 
+            merged_list.append(list1[i1]) 
+            #if we were to increment i1, would it be a larger index than index of the value with the largest index in list 1
+            if i1 + 1 == len(list1): 
+                # add the rest of list 2 to the merged list 
+                # because list2 is already in order and we've finsed adding all the values in list1 
+                for item in list2[i2:]: 
+                    merged_list.append(item) 
+            else: 
+                i1 += 1     #il = i1 + 1
+        else:
+            merged_list.append(list2[i2])
+            if i2 + 1 == len(list2): 
+                for item in list1[i1:]:
+                    merged_list.append(item)
+            else: 
+                i2 += 1 
+    return merged_list
+
     # TODO: Implement this function
     pass
 
@@ -149,10 +177,11 @@ def reverse_string(s: str) -> str:
     for character in s: 
         list_s.append(character) 
     final_index = len(list_s)-1 
-    reversed_list_s = [] 
+    reversed_list_s = [0]*len(s) 
     for character in list_s: 
         reversed_list_s[final_index] = character
         final_index -= 1 
+    return "".join(reversed_list_s)
     # problem done in office hours
     # TODO: Implement this function
     pass
@@ -184,7 +213,7 @@ def intersection(list1: list, list2: list) -> list:
     - list: The intersection of the two lists
     """
     intersection_list: list = [] 
-    for number in list1
+    for number in list1:
         if number in list2: 
             intersection_list.append(number)
         intersection_list = list(set(intersection_list)) 
