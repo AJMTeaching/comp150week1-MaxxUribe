@@ -3,10 +3,25 @@
 # Lab 1
 # Problem 1
 # Put your solution here, make sure I can run it by running this file. Do not submit it commented out.
+my_list= [1, 5, 'apple', 20.5] 
+print(my_list[2])
+my_list.append(10)
+print(my_list)
+my_list.remove(20.5) 
+print(my_list)
+my_list.reverse()
+print(my_list)
 
 # Problem 2
 # Put your solution here, make sure I can run it by running this file. Do not submit it commented out.
-
+person = {'name': 'John', 'age': 30, 'job': 'teacher'}
+print(person['job'])
+person['city'] = 'Paris'
+print(person)
+person.pop('age')
+print(person) 
+for key, value in person.items(): 
+    print(f"{key}: {value}")
 # -----------------------------------------------------------------------------
 
 
@@ -33,6 +48,14 @@ def count_vowels(s: str) -> int:
     Returns:
     - int: The number of vowels in the string
     """
+    vowels="aeiouAEIOU"
+    count = 0 
+    for characters in s:
+        if characters in vowels:
+            count += 1 
+    return count 
+
+
     # TODO: Implement this function
     pass
 
@@ -63,6 +86,7 @@ def merge_lists(list1: list, list2: list) -> list:
     Returns:
     - list: A new sorted list containing all elements from list1 and list2
     """
+    
     # TODO: Implement this function
     pass
 
@@ -121,6 +145,15 @@ def reverse_string(s: str) -> str:
     Returns:
     - str: The reversed string
     """
+    list_s = [] 
+    for character in s: 
+        list_s.append(character) 
+    final_index = len(list_s)-1 
+    reversed_list_s = [] 
+    for character in list_s: 
+        reversed_list_s[final_index] = character
+        final_index -= 1 
+    # problem done in office hours
     # TODO: Implement this function
     pass
 
@@ -150,6 +183,14 @@ def intersection(list1: list, list2: list) -> list:
     Returns:
     - list: The intersection of the two lists
     """
+    intersection_list: list = [] 
+    for number in list1
+        if number in list2: 
+            intersection_list.append(number)
+        intersection_list = list(set(intersection_list)) 
+    return intersection_list 
+    # worked on the problem with kaelen and in class 
+
     # TODO: Implement this function
     pass
 
